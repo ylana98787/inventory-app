@@ -1,0 +1,23 @@
+{
+  "inventory": [
+    {
+      "id": "1",
+      "inventory_name": "Ноутбук Dell XPS",
+      "description": "Потужний ноутбук для роботи",
+      "photo_url": "https://xstore.md/images/product/2022/08/Dell-XPS-15-9520,-Silver-4.jpg"
+    },
+    {
+      "id": "2",
+      "inventory_name": "Мишка Logitech MX Master",
+      "description": "Бездротова мишка",
+      "photo_url": "https://s13emagst.akamaized.net/products/28168/28167131/images/res_f9587faee838579940371d8a2d52ac1f.jpg"
+    },
+    {
+      "inventory_name": "Ноутбук Lenovo",
+      "description": "хороший",
+      "photo_url": "https://cdn.comfy.ua/media/catalog/product/0/2/02_ideapad_3i_15inch_hero_front_facing_jd_arctic_grey.jpg",
+      "id": "snSETanaKTA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,18 +1,54 @@
+// КОМПОНЕНТ CONFIRM-MODAL (модальне вікно підтвердження)
+// Призначення: показати вікно з питанням перед видаленням
+// Це запобігає випадковому видаленню
+
+// Функція приймає 5 параметрів (props):
+// - isOpen   : чи відкрите модальне вікно (true/false)
+// - onClose  : функція, яка закриває вікно (при натисканні "Скасувати" або на фон)
+// - onConfirm: функція, яка виконується при підтвердженні (видалення)
+// - title    : заголовок вікна (наприклад, "Підтвердження видалення")
+// - message  : текст повідомлення (наприклад, "Ви впевнені?")
 function ConfirmModal({ isOpen, onClose, onConfirm, title, message }) {
+  
+  // ЯКЩО МОДАЛЬНЕ ВІКНО ЗАКРИТЕ (isOpen = false)
+  // ТО НІЧОГО НЕ ПОКАЗУЄМО (повертаємо null)
   if (!isOpen) return null;
 
+  // ЯКЩО ВІКНО ВІДКРИТЕ (isOpen = true) → ПОКАЗУЄМО
   return (
+    // ПІДЛОЖКА (темний фон, який перекриває всю сторінку)
+    // При кліку на фон → викликається onClose (закриває вікно)
     <div className="modal-overlay" onClick={onClose}>
+      
+      {/* ОСНОВНЕ ВІКНО (білий блок з текстом і кнопками) */}
+      {/* e.stopPropagation() - забороняє кліку доходити до фону */}
+      {/* Тобто клік на білий блок НЕ закриває вікно */}
       <div className="confirm-modal" onClick={(e) => e.stopPropagation()}>
+        
+        {/* ЗАГОЛОВОК (наприклад, "Підтвердження видалення") */}
         <h3>{title}</h3>
+        
+        {/* ТЕКСТ ПОВІДОМЛЕННЯ (наприклад, "Ви впевнені?") */}
         <p>{message}</p>
+        
+        {/* КОНТЕЙНЕР ДЛЯ КНОПОК */}
         <div className="modal-buttons">
-          <button className="btn-cancel" onClick={onClose}>Скасувати</button>
-          <button className="btn-delete" onClick={onConfirm}>Видалити</button>
+          
+          {/* КНОПКА "СКАСУВАТИ" - закриває вікно без видалення */}
+          <button className="btn-cancel" onClick={onClose}>
+            Скасувати
+          </button>
+          
+          {/* КНОПКА "ВИДАЛИТИ" - викликає функцію видалення */}
+          <button className="btn-delete" onClick={onConfirm}>
+            Видалити
+          </button>
+          
         </div>
       </div>
     </div>
   );
 }
 
+// ЕКСПОРТУЄМО КОМПОНЕНТ ДЛЯ ВИКОРИСТАННЯ В ІНШИХ ФАЙЛАХ
 export default ConfirmModal;
