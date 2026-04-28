@@ -24,12 +24,17 @@ function FavoritesPage() {
       });
   }, []);
 
+  // Збереження улюблених в localStorage
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   // Фільтруємо тільки улюблені товари
   const favoriteItems = allItems.filter(item => favorites.includes(item.id));
 
   // Видалити з улюблених
   const removeFavorite = (id) => {
-    setFavorites(favorites.filter(favId => favId !== id));
+    setFavorites(prev => prev.filter(favId => favId !== id));
   };
 
   const openDetails = (item) => {
@@ -89,7 +94,7 @@ function FavoritesPage() {
               onError={(e) => e.target.src = 'https://via.placeholder.com/400'}
             />
             <h2>{selectedItem.inventory_name}</h2>
-            <p className="description">{selectedItem.description || 'Немає опису'}</p>
+            <p>{selectedItem.description || 'Немає опису'}</p>
           </div>
         </div>
       )}

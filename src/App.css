@@ -316,21 +316,22 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 25px; /*відступи між картками */
 }
 
 /* Картка товару */
 .gallery-card {
   background: white;
-  border-radius: 16px;
+  border-radius: 16px;  /*закруглені*/
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /*тінь*/
   transition: all 0.3s ease;
 }
-
+/* Підняття картки при наведенні */
 .gallery-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 /* Фото */
@@ -346,9 +347,10 @@ body {
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
+/* Збільшення фото при наведенні */
 .gallery-card:hover .card-image img {
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 /* Кнопка улюблених */
@@ -358,7 +360,7 @@ body {
   right: 10px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 50%; /*круглі кнопки */
   background: rgba(255, 255, 255, 0.9);
   border: none;
   font-size: 20px;
@@ -372,6 +374,7 @@ body {
 .favorite-btn:hover {
   transform: scale(1.1);
   background: white;
+ transition: all 0.3s ease;
 }
 
 .favorite-btn.active {
@@ -381,14 +384,14 @@ body {
 
 /* Інформація на картці */
 .card-info {
-  padding: 15px;
+  padding: 15px; /*відступи в середині карти*/
   text-align: center;
 }
 
 .card-info h3 {
   font-size: 16px;
   color: #333;
-  margin-bottom: 12px;
+  margin-bottom: 12px; /*відступи під назвою*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -403,10 +406,50 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
-
+/* Кнопка перегляду при наведенні */
 .view-btn:hover {
   background: #5a67d8;
   transform: translateY(-2px);
+   transition: all 0.3s;
+}
+/* Skeleton Loading */
+.skeleton-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-image {
+  height: 220px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 60%;
+  margin: 15px auto;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.skeleton-button {
+  height: 36px;
+  width: 100px;
+  margin: 0 auto 15px;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Модальне вікно */
