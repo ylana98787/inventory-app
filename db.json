@@ -1,12 +1,6 @@
 {
   "inventory": [
     {
-      "id": "1",
-      "inventory_name": "Ноутбук Dell XPS",
-      "description": "Потужний ноутбук для роботи",
-      "photo_url": "https://xstore.md/images/product/2022/08/Dell-XPS-15-9520,-Silver-4.jpg"
-    },
-    {
       "id": "2",
       "inventory_name": "Мишка Logitech MX Master",
       "description": "Бездротова мишка",
